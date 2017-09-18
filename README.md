@@ -32,10 +32,13 @@ cm selenoid-ui start
 4. Goto http://localhost:8080 to see available browsers 
 
 Windows installation:
+
 https://github.com/aerokube/cm/releases/download/1.2.4/cm_windows_386.exe
+
 https://github.com/aerokube/cm/releases/download/1.2.4/cm_windows_amd64.exe
 
 Rest OS: 
+
 https://github.com/aerokube/cm/releases
 
 5. Execute tests and build report
