@@ -3,18 +3,20 @@ package ru.greatbit.seleniumtests.mainpage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.greatbit.seleniumtests.elements.SearchPage;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 public class GoogleMainPageTest {
+
     public WebDriver driver;
+    private SearchPage searchPage;
 
     String BASE_URL = "https://google.com";
 
@@ -32,20 +34,19 @@ public class GoogleMainPageTest {
                 browser
         );
 
-
         // Puts an Implicit wait, Will wait for 10 seconds before throwing
         // exception
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
+
+        searchPage = new SearchPage(driver);
     }
 
     @Test
     public void openGoogleTest() {
         driver.get(BASE_URL);
-        driver.findElement(By.xpath("//input[@id='lst-ib']")).sendKeys("Some request");
-        driver.findElement(By.xpath("//input[@name='btnK']")).click();
-        driver.findElement(By.xpath("//input[@class='appbar']"));
+        searchPage.search("SomeRequest");
     }
 
     @After

@@ -10,10 +10,6 @@ cm selenoid-ui start
 
 
 
-MAC
-brew install allure
-
-Linux
-sudo apt-add-repository ppa:qameta/allure
-sudo apt-get update
-sudo apt-get install allure-commandline
+Execute
+mvn clean test
+mvn allure:report
