@@ -41,9 +41,37 @@ Rest OS:
 
 https://github.com/aerokube/cm/releases
 
-5. Execute tests and build report
+5. Pull images for intended browsers
+E.g. for chrome 60.0
+```
+git pull selenoid/vnc:chrome_60.0
+```
+
+6. Execute tests and build report
+
 ```
 mvn clean test allure:report
 ```
 
+Browser is configured using system properties "browser" and "browser.version"
+By default: "firefox", "latest".
+
+```
+mvn -DargLine="-Dbrowse=chrome -Dversion=60.0" clean test allure:report
+```
+
+Selenoid endpoint is configured system property "webdriver.endpoint"
+Default value is "http://localhost:4444/wd/hub"
+
+```
+mvn -Dwebdriver.endpoint=http://localhost:4444/wd/hub clean test allure:report
+```
+
+Base URL is configured using system property "base.url"
+
+```
+mvn -Dbase.url=https://google.com clean test allure:report
+```
+
+7. View report
 Allure Report will be placed in  target/site/allure-maven-plugin
