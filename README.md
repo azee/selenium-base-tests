@@ -57,7 +57,7 @@ Browser is configured using system properties "browser" and "browser.version"
 By default: "firefox", "latest".
 
 ```
-mvn -DargLine="-Dbrowse=chrome -Dversion=60.0" clean test allure:report
+mvn -Dbrowser=chrome -Dbrowser.version=60.0 clean test allure:report
 ```
 
 Selenoid endpoint is configured system property "webdriver.endpoint"

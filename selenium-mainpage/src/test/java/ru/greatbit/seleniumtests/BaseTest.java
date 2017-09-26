@@ -1,10 +1,13 @@
 package ru.greatbit.seleniumtests;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.greatbit.seleniumtests.common.ScreenshotRule;
+
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -17,6 +20,9 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * Created by azee on 26.09.17.
  */
 public class BaseTest {
+
+    @Rule
+    public ScreenshotRule screenshotRule = new ScreenshotRule();
 
     private final String WEBDRIVER_ENDPOINT_PLACEHOLDER = "webdriver.endpoint";
     private final String BASE_URL_PLACEHOLDER = "base.url";
@@ -49,7 +55,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver.manage().window().setSize(new Dimension(1920, 1080));
-
+        screenshotRule.setDriver(driver);
     }
 
     private String setProperty(String defaultValue, String placeholder){

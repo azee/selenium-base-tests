@@ -12,10 +12,8 @@ public class GoogleMainPageTest extends BaseTest{
 
     private SearchPage searchPage;
 
-    String BASE_URL = "https://google.com";
-
     @Before
-    public void launchbrowser() throws MalformedURLException {
+    public void setUp() throws MalformedURLException {
         searchPage = new SearchPage(driver);
     }
 
@@ -23,10 +21,7 @@ public class GoogleMainPageTest extends BaseTest{
     public void openGoogleTest() {
         driver.get(BASE_URL);
         searchPage.search("SomeRequest");
+        throw new RuntimeException();
     }
 
-    @After
-    public void closeBrowser() {
-         driver.quit();
-    }
 }

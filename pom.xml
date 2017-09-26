@@ -6,8 +6,9 @@
     <artifactId>selenium-base-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>elements</module>
-        <module>mainpage</module>
+        <module>selenium-common</module>
+        <module>selenium-elements</module>
+        <module>selenium-mainpage</module>
     </modules>
 
     <name>Java Utils</name>
@@ -49,13 +50,19 @@
             <!-- Self -->
             <dependency>
                 <groupId>ru.greatbit</groupId>
-                <artifactId>elements</artifactId>
+                <artifactId>selenium-common</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>ru.greatbit</groupId>
-                <artifactId>mainpage</artifactId>
+                <artifactId>selenium-elements</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>ru.greatbit</groupId>
+                <artifactId>selenium-mainpage</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -64,7 +71,6 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>
@@ -154,7 +160,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.20.1</version>
                     <configuration>
-                        <testFailureIgnore>false</testFailureIgnore>
+                        <testFailureIgnore>true</testFailureIgnore>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         </argLine>
