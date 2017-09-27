@@ -43,8 +43,8 @@ public class ScreenshotRule extends TestWatcher {
 
     private void captureScreenshot(String fileName) {
         try {
-            new File("target/surefire-reports/").mkdirs(); // Insure directory is there
-            FileOutputStream out = new FileOutputStream("target/surefire-reports/screenshot-" + fileName + ".png");
+            new File("target" + File.separator +  "surefire-reports" + File.separator).mkdirs(); // Insure directory is there
+            FileOutputStream out = new FileOutputStream("target" + File.separator + "surefire-reports"+ File.separator + "screenshot-" + fileName + ".png");
             out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             out.close();
         } catch (Exception e) {
