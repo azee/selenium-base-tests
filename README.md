@@ -44,7 +44,7 @@ https://github.com/aerokube/cm/releases
 5. Pull images for intended browsers
 E.g. for chrome 60.0
 ```
-git pull selenoid/vnc:chrome_60.0
+docker pull selenoid/vnc:chrome_60.0
 ```
 
 6. Execute tests and build report
